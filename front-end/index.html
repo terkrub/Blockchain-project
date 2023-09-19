@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mint Shoe NFT</title>
+</head>
+<body>
+    <h1>Mint a New Shoe NFT</h1>
+
+    <label for="name">Shoe Name:</label>
+    <input type="text" id="name" placeholder="Enter shoe name">
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" placeholder="Enter shoe description">
+
+    <label for="image">Image URL:</label>
+    <input type="text" id="image" placeholder="Enter image URL">
+
+    <label for="size">Size:</label>
+    <input type="text" id="size" placeholder="Enter shoe size">
+
+    <label for="color">Color:</label>
+    <input type="text" id="color" placeholder="Enter shoe color">
+
+    <button onclick="mintNFT()">Mint</button>
+    <p id="status"></p>
+
+    <script>
+        async function mintNFT() {
+            const shoeDetails = {
+                name: document.getElementById('name').value,
+                description: document.getElementById('description').value,
+                image: document.getElementById('image').value,
+                attributes: [
+                    { trait_type: 'Size', value: document.getElementById('size').value },
+                    { trait_type: 'Color', value: document.getElementById('color').value }
+                ]
+            };
+
+            try {
+                const response = await fetch('http://localhost:4000/mint', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(shoeDetails)
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    document.getElementById('status').textContent = 'Successfully minted! Transaction hash: ' + data.transactionHash;
+                } else {
+                    document.getElementById('status').textContent = 'Error minting: ' + data.message;
+                }
+            } catch (error) {
+                document.getElementById('status').textContent = 'Error: ' + error;
+            }
+        }
+    </script>
+</body>
+</html>

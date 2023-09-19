@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Shoe NFT</title>
+</head>
+<body>
+    <h1>Verify Shoe Authenticity</h1>
+
+    <label for="tokenId">Token ID:</label>
+    <input type="text" id="tokenId" placeholder="Enter token ID">
+    <button onclick="checkShoe()">Verify</button>
+
+    <h2>Shoe Details:</h2>
+    <div id="shoeDetails">
+        <p><strong>Name:</strong> <span id="name"></span></p>
+        <p><strong>Description:</strong> <span id="description"></span></p>
+        <img id="image" src="" alt="Shoe Image" width="200">
+        <p><strong>Size:</strong> <span id="size"></span></p>
+        <p><strong>Color:</strong> <span id="color"></span></p>
+    </div>
+
+    <script>
+        async function checkShoe() {
+            const tokenId = document.getElementById('tokenId').value;
+            
+            try {
+                const response = await fetch(`http://localhost:4000/shoe-info/${tokenId}`);
+                const data = await response.json();
+
+                if (data.success) {
+                    document.getElementById('name').textContent = data.metadata.name;
+                    document.getElementById('description').textContent = data.metadata.description;
+                    document.getElementById('image').src = data.metadata.image;
+
+                    // Assuming the first attribute is size and the second is color
+                    document.getElementById('size').textContent = data.metadata.attributes[0].value;
+                    document.getElementById('color').textContent = data.metadata.attributes[1].value;
+                } else {
+                    alert('Error fetching details: ' + data.message);
+                }
+            } catch (error) {
+                alert('Error: ' + error);
+            }
+        }
+    </script>
+</body>
+</html>
