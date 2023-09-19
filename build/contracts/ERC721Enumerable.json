@@ -435,7 +435,7 @@
         3068
       ],
       "SignedMath": [
-        3485
+        3173
       ],
       "Strings": [
         2166
@@ -4638,7 +4638,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2023-09-13T16:26:47.209Z",
+  "updatedAt": "2023-09-19T22:37:52.596Z",
   "devdoc": {
     "details": "This implements an optional extension of {ERC721} defined in the EIP that adds enumerability of all the token ids in the contract as well as all token ids owned by each account.",
     "kind": "dev",

@@ -14,16 +14,18 @@ const PORT = 4000;
 app.use(cors());
 app.use(bodyParser.json());
 
+
 // Connect to BSC Testnet
 const web3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/');
 
 
 const CONTRACT_ABI = ShoeNFT.abi;  // Use your ShoeNFT contract ABI
-const CONTRACT_ADDRESS = '0x1f714f1b6c0acce4283a9951e2ad9b5ffb098a0e';
+const CONTRACT_ADDRESS = '0x52a38dBd7EF2F04C995F57c7E221008b5CA117B9';
 const PRIVATE_KEY = '8ead3bb7c48cf42fc0bf73daa3b207c34e11c225aa0dbbe07d7a54ef16238d51';
 const MY_ADDRESS = '0x3872E72Ad10bCEA619021efcce1c232da7413618';
 
 const contract = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
+
 
 app.post('/mint', async (req, res) => {
     try {
@@ -51,6 +53,10 @@ app.post('/mint', async (req, res) => {
         res.status(500).json({ success: false, message: error.message });
     }
 });
+
+app.get('/contracts/ABI', (req,res) =>{
+    res.json(ShoeNFT)
+})
 
 app.get('/shoe-info/:tokenId', async (req, res) => {
     try {
