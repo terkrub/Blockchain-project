@@ -5,15 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import VerifyShoeNFT from './VerifyShoeNFT';
 import NFTPortfolio from './NFTPortfolio';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-    <VerifyShoeNFT/>
-  <NFTPortfolio/>
-  </React.StrictMode>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/identify_shoe" element={<VerifyShoeNFT/>}/>
+
+    </Routes>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
