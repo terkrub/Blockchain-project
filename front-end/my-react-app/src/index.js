@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import VerifyShoeNFT from './VerifyShoeNFT';
+import Home from'./Components/Home';
 import NFTPortfolio from './NFTPortfolio';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,6 +17,7 @@ root.render(
     <Routes>
     <Route path="/" element={<App/>}/>
       <Route path="/identify_shoe" element={<VerifyShoeNFT/>}/>
+      <Route path="/home" element={<Home/>}/>
     </Routes>
   </BrowserRouter>
 );

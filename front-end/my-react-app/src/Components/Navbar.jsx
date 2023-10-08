@@ -9,7 +9,7 @@ const Navbar = () => {
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   <li className="nav-item">
-                    <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
+                    <NavLink className="nav-link active" aria-current="page" to="/home">Home</NavLink>
                   </li>
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/identify_shoe">Verification</NavLink>
@@ -18,7 +18,7 @@ const Navbar = () => {
                     <NavLink className="nav-link" to="/mynfts">My NFTs</NavLink>
                   </li>
                 </ul>
-                <NavLink className="navbar-brand fw-bolder fs-4 mx-auto" to="/">FWnft</NavLink>
+                <NavLink className="navbar-brand fw-bolder fs-4 mx-auto" to="/home">FWnft</NavLink>
                 <NavLink to="/connecttowallet" className="btn btn-outline-success ms-auto px-4 rounded-pill"><i className="fa fa-sign-in me-2"></i>Connect to Wallet</NavLink>
               </div>
             </div>
