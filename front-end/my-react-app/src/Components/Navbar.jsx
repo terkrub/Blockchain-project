@@ -12,7 +12,7 @@ const Navbar = () => {
                     <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className="nav-link" to="/verification">Verification</NavLink>
+                    <NavLink className="nav-link" to="/identify_shoe">Verification</NavLink>
                   </li>
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/mynfts">My NFTs</NavLink>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './component/style/VerifyShoeNFT.css';
+import './Components/style/VerifyShoeNFT.css';
+import Navbar from './Components/Navbar';
 
 const VerifyShoeNFT = () => {
     const [tokenId, setTokenId] = useState('');
@@ -20,32 +21,44 @@ const VerifyShoeNFT = () => {
     };
 
     return (
+        <><Navbar />
         <div className="frame">
             <h1 className="verify-shoe-authenticity">Verify Shoe Authenticity</h1>
 
-            <label>Token ID:</label>
+            <div className="Search">
+            <i className="search-icon fas fa-search"></i>
             <input 
+                className="search-input"
                 type="text" 
                 value={tokenId} 
                 onChange={(e) => setTokenId(e.target.value)} 
                 placeholder="Enter token ID" 
             />
-            <button onClick={checkShoe}>Verify</button>
+    <button className="search-button" onClick={checkShoe}>Verify</button>
+</div>
 
+
+            <label>Token ID: {tokenId}</label>
             {shoeDetails && (
-                <div className="shoe-details">
-                    <h2>Shoe Details:</h2>
-                    <div className="product-photos">
-                        <p><strong>Name:</strong> {shoeDetails.name}</p>
-                        <p><strong>Description:</strong> {shoeDetails.description}</p>
-                        <div className="product-thumbs">
-                            <p className="product-thumb-item"><strong>Size:</strong> {shoeDetails.attributes[0].value}</p>
-                            <p className="product-thumb-item2"><strong>Color:</strong> {shoeDetails.attributes[1].value}</p>
-                        </div>
-                    </div>
-                </div>
-            )}
+    <div className="shoe-details">
+    <h2>Shoe Details:</h2>
+    <div className="details-container">
+        <div className="Name">
+            <p><strong>Name:</strong> {shoeDetails.name}</p>
+            <p><strong>Description:</strong> {shoeDetails.description}</p>
+            <p><strong>Size:</strong> {shoeDetails.attributes[0].value}</p>
+            <p><strong>Color:</strong> {shoeDetails.attributes[1].value}</p>
         </div>
+        <div className="image">
+            <img src="/shoe.png" alt="Shoe" />
+        </div>
+    </div>
+</div>
+
+)}
+
+        </div>
+        </>
     );
 };
 
