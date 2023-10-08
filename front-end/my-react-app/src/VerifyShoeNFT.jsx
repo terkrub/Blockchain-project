@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './component/style/VerifyShoeNFT.css';
 
 const VerifyShoeNFT = () => {
     const [tokenId, setTokenId] = useState('');
@@ -19,24 +20,30 @@ const VerifyShoeNFT = () => {
     };
 
     return (
-        <div>
-            <h1>Verify Shoe Authenticity</h1>
+        <div className="frame">
+            <h1 className="verify-shoe-authenticity">Verify Shoe Authenticity</h1>
 
             <label>Token ID:</label>
-            <input type="text" value={tokenId} onChange={(e) => setTokenId(e.target.value)} placeholder="Enter token ID" />
+            <input 
+                type="text" 
+                value={tokenId} 
+                onChange={(e) => setTokenId(e.target.value)} 
+                placeholder="Enter token ID" 
+            />
             <button onClick={checkShoe}>Verify</button>
 
             {shoeDetails && (
-                <>
+                <div className="shoe-details">
                     <h2>Shoe Details:</h2>
-                    <div>
+                    <div className="product-photos">
                         <p><strong>Name:</strong> {shoeDetails.name}</p>
                         <p><strong>Description:</strong> {shoeDetails.description}</p>
-                        <img src={shoeDetails.image} alt="Shoe Image" width="200" />
-                        <p><strong>Size:</strong> {shoeDetails.attributes[0].value}</p>
-                        <p><strong>Color:</strong> {shoeDetails.attributes[1].value}</p>
+                        <div className="product-thumbs">
+                            <p className="product-thumb-item"><strong>Size:</strong> {shoeDetails.attributes[0].value}</p>
+                            <p className="product-thumb-item2"><strong>Color:</strong> {shoeDetails.attributes[1].value}</p>
+                        </div>
                     </div>
-                </>
+                </div>
             )}
         </div>
     );
