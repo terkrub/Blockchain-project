@@ -6,14 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import VerifyShoeNFT from './VerifyShoeNFT';
 import NFTPortfolio from './NFTPortfolio';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
+    <Route path="/" element={<App/>}/>
       <Route path="/identify_shoe" element={<VerifyShoeNFT/>}/>
-
     </Routes>
   </BrowserRouter>
 );

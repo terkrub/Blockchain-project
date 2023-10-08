@@ -8,17 +8,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <BrowserRouter>
-      <>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/verification" element={<Verification />} />
-          <Route path="/mynft" element={<Mynfts />} />
-          <Route path="/connecttowallet" element={<Connecttowallet />} />
-        </Routes>
-      </>
-    </BrowserRouter>
+   <>
+    <Navbar />
+   </>  
   );
 }
 
