@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import './style/ShoeForm.css';
 
 function ShoeForm({ onGenerateQR }) {
+    const [serialNumber, setserialNumber] = useState('');
     const [shoeName, setShoeName] = useState('');
     const [shoeSize, setShoeSize] = useState('');
     const [shoeColor, setShoeColor] = useState('');
@@ -15,6 +17,15 @@ function ShoeForm({ onGenerateQR }) {
 
     return (
         <form onSubmit={handleSubmit}>
+             <label htmlFor="serial-number">Serial Number:</label>
+            <input
+                type="text"
+                id="serial-number"
+                value={serialNumber}
+                onChange={(e) => setserialNumber(e.target.value)}
+                required
+            />
+            <br />
             <label htmlFor="shoe-name">Product:</label>
             <input
                 type="text"
