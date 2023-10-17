@@ -8,6 +8,7 @@ import Home from'./Components/Home';
 import NFTPortfolio from './NFTPortfolio';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Mynfts from './Components/Mynfts';
 
 
 
@@ -18,6 +19,7 @@ root.render(
     <Route path="/" element={<App/>}/>
       <Route path="/identify_shoe" element={<VerifyShoeNFT/>}/>
       <Route path="/home" element={<Home/>}/>
+      <Route path="/mynfts" element={<Mynfts/>}/>
     </Routes>
   </BrowserRouter>
 );

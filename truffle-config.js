@@ -7,7 +7,7 @@ module.exports = {
   networks: {
     development: {
       host: "127.0.0.1",
-      port: 7545,  // Default Ganache CLI port
+      port: 8545,  // Default Ganache CLI port
       network_id: "*",
     },
     bsctestnet: {

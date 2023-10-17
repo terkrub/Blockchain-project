@@ -1,7 +1,8 @@
 /* ShoeForm.css */
-body{
-    background: linear-gradient(135deg, #85A2AB, #3B6D8C); 
-
+body,html{
+    background: linear-gradient(135deg, #85A2AB, #3B6D8C);
+    width: 100vw;
+    height: 100%;
 }
 
 form {

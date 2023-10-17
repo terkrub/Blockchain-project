@@ -8,14 +8,15 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract ShoeNFT is ERC721Enumerable, Ownable {
 
     mapping(uint256 => string) private _tokenURIs;
+    uint256[] public allTokenIds;
 
     constructor() ERC721("ShoeNFT", "SHOE") {}
 
-    function mint(address to, string memory tokenURI) public onlyOwner returns (uint256) {
-        uint256 newTokenId = totalSupply() + 1;
-        _mint(to, newTokenId);
-        _setTokenURI(newTokenId, tokenURI);
-        return newTokenId;
+    function mint(address to, uint256 serialNumber, string memory tokenURI) public onlyOwner {
+        require(!_exists(serialNumber), "Token with this serial number already exists");
+        _mint(to, serialNumber);
+        _setTokenURI(serialNumber, tokenURI);
+        allTokenIds.push(serialNumber); // Add ID to the array
     }
 
     function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal virtual {
@@ -27,9 +28,15 @@ contract ShoeNFT is ERC721Enumerable, Ownable {
         return _tokenURIs[tokenId];
     }
 
-    // Custom function to transfer a token from one address to another
-    function transferToken(address to, uint256 tokenId) public {
-        require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721: transfer caller is not owner nor approved");
-        _transfer(_msgSender(), to, tokenId);
+    function getAllTokens() public view returns (uint256[] memory) {
+        return allTokenIds;
     }
+
+    function safeTransferFrom(address from, address to, uint256 tokenId) public virtual override {
+
+        require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721: transfer caller is not owner nor approved");
+
+        _safeTransfer(from, to, tokenId, "");
+    }
+
 }

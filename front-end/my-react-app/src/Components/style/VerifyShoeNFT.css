@@ -107,13 +107,13 @@ button:hover {
 .details-container {
     display: flex;
     align-items: start; 
-    gap: 20px; 
     border: 1px solid #000; 
+    width: 100%;
 }
 
 .Name {
     flex: 1; 
-    padding: 10px; 
+    padding: 10px;
 }
 
 .image {
@@ -125,7 +125,7 @@ button:hover {
 }
 
 .image img {
-    max-width: 100%; 
+    max-width: 80%; 
     height: auto; 
 }
 
