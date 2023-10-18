@@ -25,9 +25,8 @@ const ShoeCard = ({ id,  transferNFT}) => {
             {shoeData ? (
                 <div className="card" style={{ width: "18rem", margin:'2%' }}>
                     <img 
-                        src={shoeData.image || "..."}  // Using data for image src
+                        src='/shoe.png' // Using data for image src
                         className="card-img-top" 
-                        alt={shoeData.name || "..."}   // Using data for alt text
                     />
                     <div className="card-body">
                         <h5 className="card-title">{id}</h5>
