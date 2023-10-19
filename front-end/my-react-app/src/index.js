@@ -18,7 +18,7 @@ root.render(
     <Routes>
     <Route path="/" element={<App/>}/>
       <Route path="/identify_shoe" element={<VerifyShoeNFT/>}/>
-      <Route path="/home" element={<Home/>}/>
+      <Route path="/mint" element={<Home/>}/>
       <Route path="/mynfts" element={<Mynfts/>}/>
     </Routes>
   </BrowserRouter>

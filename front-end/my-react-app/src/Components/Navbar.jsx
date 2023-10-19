@@ -12,10 +12,10 @@ const Navbar = ({conenctwallet, account}) => {
             <nav className="navbar navbar-expand-lg navbar-light shadow">
             <div className="container-fluid">
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
-              <NavLink className="navbar-brand fw-bolder fs-4" to="/home">FWnft</NavLink>
+              <NavLink className="navbar-brand fw-bolder fs-4" to="/">FWnft</NavLink>
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   <li className="nav-item">
-                    <NavLink className="nav-link active" aria-current="page" to="/home">Home</NavLink>
+                    <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
                   </li>
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/identify_shoe">Verification</NavLink>

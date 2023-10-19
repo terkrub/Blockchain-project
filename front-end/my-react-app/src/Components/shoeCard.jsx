@@ -11,10 +11,8 @@ const ShoeCard = ({ id,  transferNFT}) => {
                 if (data.success) {
                     setShoeData(data.metadata);
                 } else {
-                    alert('Error fetching details: ' + data.message);
                 }
             } catch (error) {
-                alert('Error: ' + error);
             }
         };
         fetchData();
@@ -29,11 +27,11 @@ const ShoeCard = ({ id,  transferNFT}) => {
                         className="card-img-top" 
                     />
                     <div className="card-body">
-                        <h5 className="card-title">{id}</h5>
+                        <h5 className="card-title">Serial number: {id.toString()}</h5>
                         <p className="card-text">Shoe name: {shoeData.shoeName}</p>
                         <p className="card-text">Shoe size: {shoeData.shoeSize}</p>
                         <p className="card-text">Year: {shoeData.year}</p>
-                        <button className="btn btn-primary" onClick={()=>{transferNFT(id)}}>Transfer</button>
+                        {transferNFT?<button className="btn btn-primary" onClick={()=>{transferNFT(id)}}>Transfer</button>:""}
                     </div>
                 </div>
             ) : (
